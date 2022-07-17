@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, request
 import requests
 from datetime import datetime
+from .utils.helpers import tdelta
 import os
 news = Blueprint('news', __name__)
 
@@ -9,7 +10,7 @@ news = Blueprint('news', __name__)
 def home():
 
     params = {
-        'q': 'tesla',
+        'q': 'India',
         'from': datetime.now().strftime('%Y-%m-%d'),
         'language': 'en',
         'sortBy': 'publishedAt',
@@ -21,12 +22,9 @@ def home():
     data = {
 
         'news': news.json(),
-        'date': datetime.now().strftime('%d/%m/%Y'),
+        'date': tdelta,
 
     }
-
-    print(news.json())
-
 
     return render_template('home.html', **data)
 
@@ -51,7 +49,7 @@ def search():
     data = {
 
         'news': news.json(),
-        'date': datetime.now().strftime('%d/%m/%Y'),
+        'date': tdelta,
 
     }
 

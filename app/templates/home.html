@@ -41,7 +41,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ i['source']['name'] }}</h5>
             <p class="card-text">{{ i['title'] }}</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text"><small class="text-muted">{{ date(i['publishedAt']) }}</small></p>
             <a href="{{ i['url'] }}" target="_blank" class="btn btn-primary">Read more</a>
         </div>
     </div>
